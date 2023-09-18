@@ -1,3 +1,5 @@
+import django_filters
+
 from .serializers import *
 from rest_framework import viewsets
 
@@ -21,4 +23,8 @@ class MountViewSet(viewsets.ModelViewSet):
     queryset = Mount.objects.all()
     serializer_class = MountSerializer
 
-
+class MailViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_fields = ['email']
