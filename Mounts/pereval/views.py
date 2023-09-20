@@ -22,9 +22,5 @@ class PhotoViewSet(viewsets.ModelViewSet):
 class MountViewSet(viewsets.ModelViewSet):
     queryset = Mount.objects.all()
     serializer_class = MountSerializer
-
-class MailViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-    filterset_fields = ['email']
+    filterset_fields = ["user__email"]
