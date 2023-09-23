@@ -26,7 +26,7 @@ class MountViewSet(viewsets.ModelViewSet):
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
     filterset_fields = ["user__email"]
 
-    def record_update(self, request, pk, format=None):
+    def partial_update(self, request, *args, **kwargs):
         record = self.get_object()
         if record.status == 'new':
             serializer = MountSerializer(record, data=request.data, partial=True)
@@ -42,7 +42,7 @@ class MountViewSet(viewsets.ModelViewSet):
                 return Response(
                     {
                         'state': '0',
-                        'message': 'Ошибка'
+                        'message': serializer.errors
                     }
                 )
         else:
