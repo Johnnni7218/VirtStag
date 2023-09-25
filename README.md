@@ -113,3 +113,7 @@ class MountSerializer(WritableNestedModelSerializer):
     },
     "photo": [{"data":"https://vsegda-pomnim.com/uploads/posts/2022-04/1650876642_17-vsegda-pomnim-com-p-pereval-stelvio-foto-19.jpg", "title":"Зелёный"]
 }
+
+### Документация проекта с помощью Swagger.
+
+http://127.0.0.1:8000/redoc/
