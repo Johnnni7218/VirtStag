@@ -21,7 +21,7 @@ class MountApiTestCase(APITestCase):
         url = reverse('mount-list')
         response = self.client.get(url)
         serializer_data = MountSerializer([self.mount_1, self.mount_2], many=True).data
-        self.assertEqual(serializer_data, response.data)
+        self.assertEqual(serializer_data, response.data['results'])
         self.assertEqual(len(serializer_data), 2)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
 
